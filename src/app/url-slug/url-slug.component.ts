@@ -19,6 +19,7 @@ export class UrlSlugComponent implements OnInit {
       (data)=>{
         this.fUrl = new url(data.fullLink,
           data.slug);
+        console.log(data.fullLink);
         window.location.href = this.fUrl.fullLink;
       }
     ) 
