@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UrlMainComponent } from './url-main/url-main.component';
 import { UrAboutComponent } from './ur-about/ur-about.component';
 import { UrlSlugComponent } from './url-slug/url-slug.component';
+import { UrlRedirectComponent } from './url-redirect/url-redirect.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,9 @@ const routes: Routes = [
   },
   {
     path: 'about', component: UrAboutComponent
+  },
+  {
+    path: 'notfound', component: UrlRedirectComponent
   },
   {
     path: '**', component: UrlSlugComponent

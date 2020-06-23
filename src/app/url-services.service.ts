@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from "rxjs/operators"; 
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
 import { url } from './url';
 import { Router } from '@angular/router';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +25,12 @@ export class UrlServicesService {
   }
 
   getUrl():Observable<url>{
-    return this.http.get<url>("https://api.zubku.site"+this.router.url,httpOptions);
+    return this.http.get<url>("https://api.zubku.site"+this.router.url,httpOptions)
+      .pipe(catchError(this.errorHandler));
+  }
+
+  errorHandler(error: HttpErrorResponse){
+    return throwError(error);
   }
 
 }

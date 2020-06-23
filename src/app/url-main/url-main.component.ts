@@ -25,7 +25,7 @@ export class UrlMainComponent implements OnInit {
       (data)=>{
         console.log(data);
         this.gUrl = new url(data.fullLink,
-          data.slug);
+          data.slug, data.status);
       }
     )
   }

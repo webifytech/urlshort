@@ -12,16 +12,23 @@ import { UrlServicesService } from '../url-services.service';
 export class UrlSlugComponent implements OnInit {
 
   fUrl: url;
-  constructor(private urlService: UrlServicesService) { }
+  constructor(private router: Router, private urlService: UrlServicesService) { }
 
   ngOnInit(): void {
     this.urlService.getUrl().subscribe(
       (data)=>{
         this.fUrl = new url(data.fullLink,
-          data.slug);
-        console.log(data.fullLink);
-        window.location.href = this.fUrl.fullLink;
+                            data.slug,
+                            data.status);
+        window.location.href = data.fullLink;
+      },
+      (err) => {
+        if(err.status === 404){
+          console.log(err.status);
+          this.router.navigate(['/notfound']);
+        }
       }
+      
     ) 
   }
 

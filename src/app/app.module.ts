@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { UrlMainComponent } from './url-main/url-main.component';
 import { UrAboutComponent } from './ur-about/ur-about.component';
 import { UrlSlugComponent } from './url-slug/url-slug.component';
+import { UrlRedirectComponent } from './url-redirect/url-redirect.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UrlMainComponent,
     UrAboutComponent,
-    UrlSlugComponent
+    UrlSlugComponent,
+    UrlRedirectComponent
   ],
   imports: [
     BrowserModule,
