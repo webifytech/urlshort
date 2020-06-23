@@ -20,7 +20,8 @@ export class UrlSlugComponent implements OnInit {
         this.fUrl = new url(data.fullLink,
                             data.slug,
                             data.status);
-        window.location.href = data.fullLink;
+                            console.log(data.fullLink);
+        window.location.replace(data.fullLink);
       },
       (err) => {
         if(err.status === 404){
@@ -31,5 +32,6 @@ export class UrlSlugComponent implements OnInit {
       
     ) 
   }
+
 
 }
